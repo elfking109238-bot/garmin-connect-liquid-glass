@@ -1,0 +1,208 @@
+/*
+ * Garmin Liquid Glass — shared visual tokens, v0.2.1
+ * No remote fonts/images, no generated content, no health data.
+ * This file alone does not select any Garmin application element.
+ */
+:root {
+  --gc-lg-ink: #20364c;
+  --gc-lg-muted: #586c7e;
+  --gc-lg-accent: #176ca4;
+  --gc-lg-focus: #075f9c;
+  --gc-lg-blue: #dcedff;
+  --gc-lg-mint: #d9f4ec;
+  --gc-lg-peach: #ffe6e3;
+  --gc-lg-surface: rgba(255, 255, 255, .66);
+  --gc-lg-surface-solid: #f5f9fc;
+  --gc-lg-popup: rgba(252, 254, 255, .96);
+  --gc-lg-edge: rgba(255, 255, 255, .86);
+  --gc-lg-hairline: rgba(64, 102, 133, .15);
+  --gc-lg-shadow: 0 10px 30px rgba(50, 90, 119, .09),
+    inset 0 1px 0 rgba(255, 255, 255, .85);
+  --gc-lg-radius: 24px;
+  --gc-lg-control-radius: 12px;
+  --gc-lg-blur: 18px;
+  --gc-lg-backdrop: radial-gradient(ellipse at 14% 0%, #dcf5eb 0, transparent 52%),
+    radial-gradient(ellipse at 94% 8%, #ffe6e3 0, transparent 46%),
+    radial-gradient(ellipse at 48% 100%, #dcecff 0, transparent 58%), #edf4f9;
+}
+
+/* DOM verified 2026-10-29: Garmin Connect China /app/.
+ * Match component prefixes; omit generated CSS-module hash suffixes.
+ * Deliberately preserve layout, dimensions, stacking, chart colors and data.
+ */
+html { background: #edf4f9 !important; }
+body[class*="Gc5PageWrapper_pageWrapper"] {
+  background: var(--gc-lg-backdrop) !important;
+  background-attachment: fixed !important;
+  color: var(--gc-lg-ink);
+}
+.connect-container,
+.main-body,
+#pageContainer,
+div[class*="Gc5PageWrapper_pageWrapper__"],
+[class*="Gc5PageWrapper_contentContainer__"] {
+  background: transparent !important;
+}
+
+/* The native sidebar keeps its original width, scrolling and collapse logic. */
+.main-nav {
+  background: rgba(246, 252, 254, .72) !important;
+  color: var(--gc-lg-ink) !important;
+  backdrop-filter: blur(var(--gc-lg-blur)) saturate(125%);
+  -webkit-backdrop-filter: blur(var(--gc-lg-blur)) saturate(125%);
+  box-shadow: inset -1px 0 rgba(255, 255, 255, .9), 3px 0 20px rgba(54, 89, 119, .05);
+}
+.main-nav [class*="MainSidebar_sidebarMenuGroups__"] {
+  border-color: var(--gc-lg-hairline) !important;
+}
+.main-nav [class*="MainSidebar_sidebarOuterContainer__"] {
+  background: transparent !important;
+}
+.main-nav [class*="MainSidebar_sidebarMenuItems__"] {
+  border-color: var(--gc-lg-hairline) !important;
+}
+/* Each rounded link owns the row paint. Native li:hover otherwise puts a
+ * square #1e1e1e backdrop under the translucent link and exposes dark corners. */
+.main-nav li[class*="MainSidebar_menuItem__"] {
+  background: transparent !important;
+}
+.main-nav [class*="MainSidebar_menuItemLink__"],
+.main-nav [class*="MainSidebar_menuItemText__"],
+.main-nav [class*="MainSidebar_dropdownArrow__"] {
+  color: var(--gc-lg-ink) !important;
+}
+.main-nav [class*="MainSidebar_menuItemLink__"] {
+  border-radius: 12px;
+}
+.main-nav [class*="MainSidebar_menuItemText__"] {
+  font-weight: 400;
+}
+.main-nav [class*="MainSidebar_menuItemLink__"]:focus-visible {
+  outline: 2px solid var(--gc-lg-focus) !important;
+  outline-offset: -3px;
+}
+/* Native thumb has 2px #1a1a1a side borders from the original dark sidebar. */
+.main-nav [class*="MainSidebar_sidebarMenuGroups__"]::-webkit-scrollbar-thumb {
+  border-color: transparent !important;
+  background-clip: padding-box;
+}
+.main-nav [class*="MainSidebar_menuItemLink__"]:hover {
+  background: rgba(255, 255, 255, .62) !important;
+}
+.main-nav [class*="MainSidebar_menuItemLink__"][class*="MainSidebar_active__"] {
+  background: rgba(194, 225, 244, .58) !important;
+  color: #105b8a !important;
+  box-shadow: inset 3px 0 #2484b3;
+}
+.main-nav [class*="MainSidebar_menuItemLink__"][class*="MainSidebar_activeChild__"] {
+  background: rgba(194, 225, 244, .65) !important;
+  color: #105b8a !important;
+}
+/* Original logo sprite remains; give its white artwork contrast on light glass. */
+.main-nav .logo::before, .main-nav .logo::after {
+  filter: brightness(.28);
+}
+
+.main-body > header.header,
+[class*="TopHeaderBarView_header__"] {
+  background: rgba(250, 254, 255, .74) !important;
+  border-color: var(--gc-lg-edge) !important;
+  backdrop-filter: blur(var(--gc-lg-blur)) saturate(125%);
+  -webkit-backdrop-filter: blur(var(--gc-lg-blur)) saturate(125%);
+  box-shadow: 0 3px 20px rgba(54, 89, 119, .04);
+}
+
+/* All three observed home card families use their original box model. */
+[class*="Gc5Card_card__"],
+[class*="EssentialsStatCard_statsCard__"] {
+  background: var(--gc-lg-surface) !important;
+  border-color: var(--gc-lg-edge) !important;
+  border-radius: var(--gc-lg-radius) !important;
+  box-shadow: var(--gc-lg-shadow) !important;
+  backdrop-filter: blur(var(--gc-lg-blur)) saturate(120%);
+  -webkit-backdrop-filter: blur(var(--gc-lg-blur)) saturate(120%);
+  color: var(--gc-lg-ink);
+}
+[class*="EssentialsStatCard_statsCard__"]:hover {
+  background: rgba(255, 255, 255, .82) !important;
+  border-color: #fff !important;
+}
+[class*="Homepage_sectionLabel__"] {
+  color: var(--gc-lg-ink) !important;
+  font-weight: 500;
+  letter-spacing: .015em;
+}
+[class*="Gc5CardHeader_headerText__"],
+[class*="SecondaryStatCard_secondaryStatsTitle__"] {
+  color: var(--gc-lg-ink) !important;
+  font-weight: 550;
+}
+[class*="EssentialsStatCard_cardMessage__"] {
+  color: var(--gc-lg-muted) !important;
+}
+[class*="InFocusCardStat_largeStatMainText"],
+[class*="HeartRateSecondaryStatCard_mainText__"] {
+  font-weight: 550 !important;
+  letter-spacing: -.025em;
+  font-variant-numeric: tabular-nums;
+}
+[class*="InFocusCard_fullBorderLine__"] {
+  border-color: var(--gc-lg-hairline) !important;
+}
+
+/* Native controls retain their labels, hit areas, state and event handlers. */
+[class*="Button_btn__"] { border-radius: var(--gc-lg-control-radius) !important; }
+[class*="Button_btn__"][class*="Button_primary__"]:not([class*="Button_iconButton__"]) {
+  background: #176ca4 !important;
+  color: #fff !important;
+  border-color: #176ca4 !important;
+  box-shadow: 0 3px 10px rgba(23, 108, 164, .14);
+}
+[class*="Button_btn__"][class*="Button_primary__"]:not([class*="Button_iconButton__"]):hover {
+  background: #105a8b !important;
+}
+[class*="Button_btn__"][class*="Button_secondary__"] {
+  background: rgba(255, 255, 255, .8) !important;
+  color: #245878 !important;
+  border-color: rgba(76, 126, 161, .24) !important;
+}
+button:focus-visible, a:focus-visible {
+  outline: 3px solid var(--gc-lg-focus) !important;
+  outline-offset: 3px;
+}
+
+/* Higher opacity protects readability over cards, charts and dialog backdrops. */
+[class*="Dialog_dialog__"],
+[class*="ImportDataMenu_menu__"],
+[class*="UserProfileMenu_menu__"],
+[class*="DeviceStatus_container__"] {
+  background: var(--gc-lg-popup) !important;
+  border-color: var(--gc-lg-edge) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 18px 60px rgba(29, 61, 87, .2), inset 0 1px #fff !important;
+  backdrop-filter: blur(22px) saturate(120%);
+  -webkit-backdrop-filter: blur(22px) saturate(120%);
+}
+[class*="Dialog_dialogBackdrop__"] {
+  background-color: rgba(27, 53, 77, .3) !important;
+}
+.recharts-tooltip-wrapper [class*="HeartRateReportView_tooltip__"] {
+  background: var(--gc-lg-popup) !important;
+  border-color: rgba(90, 128, 154, .25) !important;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(29, 61, 87, .12);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  [class*="Gc5Card_card__"], [class*="EssentialsStatCard_statsCard__"], .main-nav {
+    background: var(--gc-lg-surface-solid) !important;
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  [class*="Gc5Card_card__"], [class*="EssentialsStatCard_statsCard__"], .main-nav,
+  [class*="Dialog_dialog__"] {
+    background: var(--gc-lg-surface-solid) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}

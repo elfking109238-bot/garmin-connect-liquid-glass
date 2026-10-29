@@ -1,0 +1,27 @@
+/*
+ * Garmin Liquid Glass — shared visual tokens, v0.2.1
+ * No remote fonts/images, no generated content, no health data.
+ * This file alone does not select any Garmin application element.
+ */
+:root {
+  --gc-lg-ink: #20364c;
+  --gc-lg-muted: #586c7e;
+  --gc-lg-accent: #176ca4;
+  --gc-lg-focus: #075f9c;
+  --gc-lg-blue: #dcedff;
+  --gc-lg-mint: #d9f4ec;
+  --gc-lg-peach: #ffe6e3;
+  --gc-lg-surface: rgba(255, 255, 255, .66);
+  --gc-lg-surface-solid: #f5f9fc;
+  --gc-lg-popup: rgba(252, 254, 255, .96);
+  --gc-lg-edge: rgba(255, 255, 255, .86);
+  --gc-lg-hairline: rgba(64, 102, 133, .15);
+  --gc-lg-shadow: 0 10px 30px rgba(50, 90, 119, .09),
+    inset 0 1px 0 rgba(255, 255, 255, .85);
+  --gc-lg-radius: 24px;
+  --gc-lg-control-radius: 12px;
+  --gc-lg-blur: 18px;
+  --gc-lg-backdrop: radial-gradient(ellipse at 14% 0%, #dcf5eb 0, transparent 52%),
+    radial-gradient(ellipse at 94% 8%, #ffe6e3 0, transparent 46%),
+    radial-gradient(ellipse at 48% 100%, #dcecff 0, transparent 58%), #edf4f9;
+}

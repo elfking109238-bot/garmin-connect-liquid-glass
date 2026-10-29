@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Garmin Connect Liquid Glass",
+  "version": "0.2.1",
+  "description": "CSS-only appearance for the existing Garmin China web app.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://connectus.garmin.cn/app/*"
+      ],
+      "css": [
+        "skin.css"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
